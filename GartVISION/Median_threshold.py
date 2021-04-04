@@ -22,6 +22,7 @@ def main():
             break #tắt cửa sổ cũ
     cv2.destroyAllWindows()
 
+
     print(thr) #in ra phần threshold 
 
     original = gbv.FeedWindow(window_name='original') #tạo ảnh gốc
