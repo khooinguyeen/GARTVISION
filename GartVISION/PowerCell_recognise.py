@@ -1,11 +1,9 @@
-from Detect_RectangularObject import OBJECT_CONST, THRESHOLD_CONST
 import gbvision as gbv #define
 
 THRESHOLD_CONST = gbv.ColorThreshold([[16, 36], [100, 255], [100, 255]], 'HSV')
 
-OBJECT_CONST = gbv.GameObject(0.02482866647577738982015034781317) #diện tích 2D power cell
+OBJECT_CONST = gbv.GameObject(0.02482866647577738982015034781317) #diện tích 2D của power cell
 gbv.GameObject
-
 
 
 def main():

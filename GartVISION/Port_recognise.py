@@ -4,10 +4,13 @@ import numpy as np
 import gbvision as gbv
 
 stdv = np.array([10, 80, 80])
+THRESHOLD_CONST = gbv.ColorThreshold([[16, 36], [100, 255], [100, 255]], 'HSV')
+OBJECT_CONST = gbv.GameObject(0.20706279240848655)
+
 
 
 def main():
-    camera = gbv.USBCamera(0)
+    camera = gbv.USBCamera(0, gbv.LIFECAM_3000)
     camera.set_exposure(-5)
     window = gbv.CameraWindow('feed', camera)
     window.open()
