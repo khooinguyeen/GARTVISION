@@ -15,7 +15,7 @@ THRESHOLD_CONST = gbv.ColorThreshold([[16, 36], [100, 255], [100, 255]], 'HSV')
 OBJECT_CONST = gbv.GameObject(0.09680909)
 IMAGE_PATH = 'C:\\Users\\admin\\OneDrive\\Desktop\\GARTVISION\\GartVISION\\20cm.png'
 def main():
-    camera = gbv.USBCamera(1, LOGITECH_C922)
+    camera = gbv.USBCamera(0, LOGITECH_C922)
     camera.set_exposure(-5)
     threshold_function = THRESHOLD_CONST + gbv.MedianBlur(5)
     window = gbv.CameraWindow('feed', camera) #tạo window (cửa sổ mới)
@@ -24,7 +24,7 @@ def main():
         frame = window._get_frame()
         frame = cv2.flip(frame, 1)
 
-        # frame = cv2.imread(IMAGE_PATH)
+        #frame = cv2.imread(IMAGE_PATH)
 
         window.show_frame(frame)
         pth = window.last_key_pressed
@@ -34,8 +34,9 @@ def main():
             break
     cv2.destroyAllWindows()
 
-
+    print('hi')
     print(thr)
+    
 
     original = gbv.FeedWindow(window_name='original') #ảnh gốc
     after_proc = gbv.FeedWindow(window_name='after threshold', drawing_pipeline=thr)
@@ -58,13 +59,14 @@ def main():
         frame = camera.read()[1]
         frame = cv2.flip(frame, 1)
 
-        # frame = cv2.imread(IMAGE_PATH)
+        #frame = cv2.imread(IMAGE_PATH)
 
         frame = cv2.erode(frame, kernel, iterations=1)
         frame = cv2.dilate(frame, kernel, iterations=1)
         objects = finder(frame, camera)
         if len(objects):
-            print("object is at distance: %s meters" % (gbv.distance_from_object(objects[0]))) #in ra khoảng cách từ cam đến object[0](vật nhận diện gần nhất)
+            print("object is at distance: %s meters" % (gbv.distance_from_object(objects[0])))
+             #in ra khoảng cách từ cam đến object[0](vật nhận diện gần nhất)
         if not original.show_frame(frame):
             break
         if not after_proc.show_frame(frame):
