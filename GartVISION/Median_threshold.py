@@ -21,6 +21,7 @@ def main():
             thr = gbv.median_threshold(frame, stdv, bbox, 'HSV') #tạo threshold
             break #tắt cửa sổ cũ
     cv2.destroyAllWindows()
+    
 
 
     print(thr) #in ra phần threshold 
