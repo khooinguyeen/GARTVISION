@@ -1,11 +1,11 @@
-from _pynetworktables.instance import NetworkTablesInstance
+#from _pynetworktables.instance import NetworkTablesInstance
 import cv2
 import numpy as np
 import threading
 import gbvision as gbv
 import time
 import logging
-from networktables import NetworkTables
+#from networktables import NetworkTables
 import sys
 
 # cond = threading.Condition()
@@ -42,7 +42,7 @@ LOGITECH_C922 = gbv.CameraData(640, 0.61453043 , 0.377863783, is_immutable=True,
 
 THRESHOLD_CONST = gbv.ColorThreshold([[16, 36], [100, 255], [100, 255]], 'HSV')
 OBJECT_CONST = gbv.GameObject(0.09680909)
-IMAGE_PATH = 'C:\\Users\\admin\\OneDrive\\Desktop\\GARTVISION\\GartVISION\\20cm.png'
+#IMAGE_PATH = 'C:\\Users\\admin\\OneDrive\\Documents\\GitHub\\GARTVISION\\GartVISION\\20cm.png'
 def main():
 
     # if len(sys.argv) != 2:

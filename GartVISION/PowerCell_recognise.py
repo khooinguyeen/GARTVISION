@@ -1,4 +1,5 @@
 import gbvision as gbv #define
+import cv2
 
 THRESHOLD_CONST = gbv.ColorThreshold([[16, 36], [100, 255], [100, 255]], 'HSV')
 
@@ -20,6 +21,7 @@ def main():
     window.open()
     while window.is_opened():
         frame=window.show_and_get_frame()
+        frame = cv2.flip(frame, 1)
         objects = finder(frame, camera)
         if len(objects):
             print("khoảng cách là: %s meters" % (gbv.distance_from_object(objects[0])))
